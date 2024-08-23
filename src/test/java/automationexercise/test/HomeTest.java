@@ -47,14 +47,14 @@ public void setUp() {
     }
 
     @Test
-    public void testAddUsuario() {
-    homePage.mostrarAdmin();
-    homePage.clicarBtnAdd();
-    homePage.inputAdmin();
-    homePage.inputStatus();
-    homePage.preencherNome();
-    homePage.preencherPassowrd();
-    homePage.preencherConfirmPassowrd();
-    homePage.clicarBtnSave();
+    public void testAddUsuarioInvalido() {
+        homePage.mostrarAdmin();
+        homePage.clicarBtnAdd();
+        homePage.preencherAdmin(1);
+        homePage.preencherStatus(1);
+        homePage.preencherNome();
+        homePage.preencherPassowrd();
+        homePage.preencherConfirmPassowrd();
+        homePage.clicarBtnSave();
     }
 }

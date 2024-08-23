@@ -2,6 +2,8 @@ package automationexercise.factory.selenium;
 
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import static automationexercise.factory.selenium.Waits.waitElement;
 
@@ -25,6 +27,12 @@ public class Interactions extends Elements {
     protected static void sendTab(By by){
         waitElement(by);
         element(by).sendKeys("\t");
+    }
+
+    protected static void selectByValue(By by, String text) {
+        WebElement elementSelect = driver.findElement(by);
+        Select select = new Select(elementSelect);
+        select.selectByVisibleText(text);
     }
 
 
