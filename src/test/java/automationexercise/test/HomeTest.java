@@ -40,8 +40,11 @@ public void setUp() {
 
 	@Test
     public void testBuscarUsuario() {
-        String texto = homePage.buscarUsuario();
-        validation.validateText("Admin", texto);
+        homePage.buscarUsuario();
+        homePage.clicarBtnBuscarUsuario();
+        String nomeEncontrado = homePage.mostrarUsuarioencontrado();
+        validation.validateText("(1) Record Found", nomeEncontrado);
+
 
     }
 

@@ -12,9 +12,9 @@ public class BaseTest extends BrowserService {
         initChromeDriver("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
     }
 
-    @AfterEach
-    public void fecharNavegador(){
-        quit();
-    }
+//    @AfterEach
+//    public void fecharNavegador(){
+//        quit();
+//    }
 
 }
