@@ -16,6 +16,10 @@ public class LoginPage extends Interactions {
     By.cssSelector("div.oxd-topbar-header > div.oxd-topbar-header-title > span > h6");
     private static final By msgmEmailIncorreto =
     By.cssSelector("div.oxd-alert.oxd-alert--error > div.oxd-alert-content.oxd-alert-content--error > p");
+    private static final By requireUsername =
+    By.cssSelector("div.orangehrm-login-container  div.orangehrm-login-slot > div.orangehrm-login-form > form > div:nth-child(2) > div > span");
+    private static final By requirePassword =
+    By.cssSelector("div.orangehrm-login-container > div > div.orangehrm-login-slot > div.orangehrm-login-form > form > div:nth-child(3) > div > span");
 
     public void preencherCampoEmail(String email){
         sendKeys(username,email);
@@ -48,4 +52,16 @@ public class LoginPage extends Interactions {
         click(btnLogin);
         return lerTexto(msgmEmailIncorreto);
     }
+
+    public String loginUsernameVazio(String email){
+        preencherCampoEmail(email);
+        return lerTexto(requireUsername);
+    }
+
+    public String loginSenha(String senha){
+        preencherCampoEmail(senha);
+        return lerTexto(requirePassword);
+    }
+
+
 }

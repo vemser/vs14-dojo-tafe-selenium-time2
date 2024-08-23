@@ -41,6 +41,16 @@ public class LoginTest extends BaseTest {
         validation.validateText(msgm,"Invalid credentials");
     }
 
+    @Test
+    public void testUsernameVazio(){
+        LoginDto login = loginData.loginDadosValidos();
+        loginPage.loginUsernameVazio("");
+        login.setEmail("");
+
+
+        validation.validateText(msgm,"Required");
+    }
+
 
 
     @Test
