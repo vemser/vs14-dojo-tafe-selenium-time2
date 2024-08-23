@@ -30,6 +30,10 @@ public class LoginPage extends Interactions {
             By.cssSelector("form > div.orangehrm-forgot-password-button-container > button.oxd-button.oxd-button--large.oxd-button--secondary.orangehrm-forgot-password-button.orangehrm-forgot-password-button--reset");
     private static final By btnCancelarEsqueciSenha =
             By.cssSelector("button.oxd-button.oxd-button--large.oxd-button--ghost.orangehrm-forgot-password-button.orangehrm-forgot-password-button--cancel");
+    private static final By btnTextValidarEsqueciSenha =
+            By.cssSelector("div[class=\"orangehrm-card-container\"] h6");
+    private static final By VoltarPaginaLogin =
+            By.cssSelector("form[action=\"/web/index.php/auth/validate\"]");
 
     public void preencherCampoEmail(String email){
         sendKeys(username,email);
@@ -48,9 +52,19 @@ public class LoginPage extends Interactions {
     public String validarMsgmEmailIncorreto(){
         return lerTexto(msgmEmailIncorreto);
     }
+
+    public String btnValidarEsqueciSenha() {
+        return lerTexto(btnTextValidarEsqueciSenha);
+    }
+
+    public String voltarPagina() {
+        return lerTexto(VoltarPaginaLogin);
+    }
+
     public void clicarBtnEsqueciMinhaSenha(){click(esqueciSenhaBtn);}
     public void preencherUsernameEsqueciSenha(String email){sendKeys(inputUsernameEsqueciSenha, email);}
     public void clicarBtnEsqueciSEnha(){click(btnEsqueciSenha);}
+    public void clicarBtnCancelarSenha(){click(btnCancelarEsqueciSenha);}
 
     public String fazerLogin(String email, String senha){
         preencherCampoEmail(email);
