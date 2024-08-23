@@ -5,6 +5,16 @@ import org.openqa.selenium.By;
 
 public class HomePage extends Interactions {
 
+    public static final By btnAdd = By.cssSelector("#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div.orangehrm-paper-container > div.orangehrm-header-container > button");
+    public static final By inputAdmin = By.cssSelector("#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > form > div:nth-child(1) > div > div:nth-child(1) > div > div:nth-child(2) > div > div > div.oxd-select-text-input");
+    public static final By inputStatus = By.cssSelector("#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > form > div:nth-child(1) > div > div:nth-child(3) > div > div:nth-child(2) > div > div > div.oxd-select-text-input");
+
+    public static final By labelUserName = By.cssSelector("#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > form > div:nth-child(1) > div > div:nth-child(4) > div > div:nth-child(2) > input");
+    public static final By labelPassword = By.cssSelector("#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > form > div.oxd-form-row.user-password-row > div > div.oxd-grid-item.oxd-grid-item--gutters.user-password-cell > div > div:nth-child(2) > input");
+    public static final By labelConfirmPassword = By.cssSelector("#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > form > div.oxd-form-row.user-password-row > div > div:nth-child(2) > div > div:nth-child(2) > input");
+
+    public static final By btnSave = By.cssSelector("#app > div.oxd-layout.orangehrm-upgrade-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > form > div.oxd-form-actions > button.oxd-button.oxd-button--medium.oxd-button--secondary.orangehrm-left-space");
+
 
     public static final By searchField = By.cssSelector(".oxd-input");
 
@@ -42,6 +52,23 @@ public class HomePage extends Interactions {
     public String mostrarUsuarioencontrado() {
         return lerTexto(txtUsuarioEncontrado)
 ;
+    }
+
+
+    public void clicarBtnAdd() {
+        click(btnAdd);
+    }
+
+    public void clicarBtnSave(){
+        click(btnSave);
+    }
+
+    public void inputAdmin() {
+        click(inputAdmin);
+    }
+
+    public void inputStatus() {
+        click(inputStatus);
     }
 
 }

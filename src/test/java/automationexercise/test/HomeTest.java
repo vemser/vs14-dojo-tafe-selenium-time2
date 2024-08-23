@@ -44,11 +44,14 @@ public void setUp() {
         homePage.clicarBtnBuscarUsuario();
         String nomeEncontrado = homePage.mostrarUsuarioencontrado();
         validation.validateText("(1) Record Found", nomeEncontrado);
+    }
+
+    @Test
+    public void testAddUsuario() {
+    homePage.clicarBtnAdd();
 
 
     }
-
-
 
 
 
