@@ -15,7 +15,7 @@ public class DataFakerGeneretor {
         return faker.internet().password();
     }
 
-
+    public String nomeFaker() {return  faker.name().fullName();}
 
 
 
