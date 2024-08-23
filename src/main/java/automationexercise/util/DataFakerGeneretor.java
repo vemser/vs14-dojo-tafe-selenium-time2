@@ -15,8 +15,4 @@ public class DataFakerGeneretor {
         return faker.internet().password();
     }
 
-
-
-
-
 }

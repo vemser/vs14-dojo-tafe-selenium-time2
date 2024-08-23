@@ -9,7 +9,7 @@ public class BaseTest extends BrowserService {
 
     @BeforeEach
     public void abrirNavegador(){
-        initChromeDriver("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        initChromeDriver("https://www.automationexercise.com/login");
     }
 
     @AfterEach
