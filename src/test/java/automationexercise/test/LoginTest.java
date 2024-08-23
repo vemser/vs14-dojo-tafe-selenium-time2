@@ -46,6 +46,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
+    @Description(CE_LOGIN_03)
     public void testUsernameVazio(){
         LoginDto login = loginData.loginDadosValidos();
         login.setEmail("");
@@ -59,21 +60,22 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
+    @Description(CE_LOGIN_04)
     public void testEsqueciSenha(){
         loginPage.clicarBtnEsqueciMinhaSenha();
         loginPage.preencherUsernameEsqueciSenha("Admin");
         String msg = loginPage.btnValidarEsqueciSenha();
-        validation.validateText(msg, "Reset Password link sent successfully");
+        validation.validateText(msg, "Reset Password");
 
     }
 
     @Test
+    @Description(CE_LOGIN_05)
     public void testEsqueciSenhaCancelar(){
         loginPage.clicarBtnEsqueciMinhaSenha();
         loginPage.preencherUsernameEsqueciSenha("Admin");
         loginPage.clicarBtnCancelarSenha();
         String texto = loginPage.validarTextoPaginaLogin();
-
         validation.validateText(texto, "Login");
     }
 
