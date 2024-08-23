@@ -38,6 +38,15 @@ public void setUp() {
         
     }
 
+	@Test
+    public void testBuscarUsuario() {
+        String texto = homePage.buscarUsuario();
+        validation.validateText("Admin", texto);
+
+    }
+
+
+
 
 
 

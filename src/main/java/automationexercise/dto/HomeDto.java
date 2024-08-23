@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AdminSearchDto {
+public class HomeDto {
 
     private String username;
     private String userRole;
