@@ -50,11 +50,13 @@ public void setUp() {
     public void testAddUsuarioInvalido() {
         homePage.mostrarAdmin();
         homePage.clicarBtnAdd();
-        homePage.preencherAdmin(1);
-        homePage.preencherStatus(1);
+        homePage.preencherAdmin();
+//        homePage.preencherStatus(1);
         homePage.preencherNome();
         homePage.preencherPassowrd();
         homePage.preencherConfirmPassowrd();
         homePage.clicarBtnSave();
+
+        validation.validateText(homePage.validEmpolyText(), "Required");
     }
 }

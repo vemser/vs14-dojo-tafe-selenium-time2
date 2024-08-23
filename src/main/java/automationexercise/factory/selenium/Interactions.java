@@ -28,12 +28,4 @@ public class Interactions extends Elements {
         waitElement(by);
         element(by).sendKeys("\t");
     }
-
-    protected static void selectByValue(By by, String text) {
-        WebElement elementSelect = driver.findElement(by);
-        Select select = new Select(elementSelect);
-        select.selectByVisibleText(text);
-    }
-
-
 }
