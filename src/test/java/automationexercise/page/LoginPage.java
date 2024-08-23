@@ -5,27 +5,29 @@ import org.openqa.selenium.By;
 
 public class LoginPage extends Interactions {
 
-    private static final By campoEmail =
-    By.cssSelector("input[data-qa=\"login-email\"]");
+    private static final By username =
+    By.cssSelector("#app > div.orangehrm-login-layout > div > div.orangehrm-login-container > div > div.orangehrm-login-slot > div.orangehrm-login-form > form > div:nth-child(2) > div > div:nth-child(2) > input");
     private static final By campoSenha =
-    By.cssSelector("[data-qa=\"login-password\"]");
-    private static final By btnAcessar =
-    By.cssSelector("#form  div div div.col-sm-4.col-sm-offset-1 div  form > button");
+
+    By.cssSelector("#app > div.orangehrm-login-layout > div > div.orangehrm-login-container > div > div.orangehrm-login-slot > div.orangehrm-login-form > form > div:nth-child(3) > div > div:nth-child(2) > input");
+    private static final By btnLogin =
+    By.cssSelector("#app > div.orangehrm-login-layout > div > div.orangehrm-login-container > div > div.orangehrm-login-slot > div.orangehrm-login-form > form > div.oxd-form-actions.orangehrm-login-action > button");
     private static final By TextMsgmBtn =
-    By.cssSelector("#header > div > div > div > div.col-sm-8 > div > ul > li:nth-child(4) > a");
+    By.cssSelector("div.oxd-topbar-header > div.oxd-topbar-header-title > span > h6");
     private static final By msgmEmailIncorreto =
-    By.cssSelector("#form > div > div > div.col-sm-4.col-sm-offset-1 > div > form > p");
+    By.cssSelector("div.oxd-alert.oxd-alert--error > div.oxd-alert-content.oxd-alert-content--error > p");
 
     public void preencherCampoEmail(String email){
-        sendKeys(campoEmail,email);
+        sendKeys(username,email);
     }
 
     public void preencherCampoSenha(String senha){
         sendKeys(campoSenha,senha);
     }
 
+
     public void clicarBtnAcessar(){
-        click(btnAcessar);
+        click(btnLogin);
     }
     public String validarTextoBtnAposLogin(){
         return lerTexto(TextMsgmBtn);
@@ -37,13 +39,13 @@ public class LoginPage extends Interactions {
     public String fazerLogin(String email, String senha){
         preencherCampoEmail(email);
         preencherCampoSenha(senha);
-        click(btnAcessar);
+        click(btnLogin);
         return lerTexto(TextMsgmBtn);
     }
     public String loginEmailIncorreto(String email, String senha){
         preencherCampoEmail(email);
         preencherCampoSenha(senha);
-        click(btnAcessar);
+        click(btnLogin);
         return lerTexto(msgmEmailIncorreto);
     }
 }

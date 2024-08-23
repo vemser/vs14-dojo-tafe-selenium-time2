@@ -27,7 +27,7 @@ public class LoginTest extends BaseTest {
         loginPage.preencherCampoSenha(usu.getSenha());
         loginPage.clicarBtnAcessar();
         String msgm = loginPage.validarTextoBtnAposLogin();
-        validation.validateText(msgm,"Logout");
+        validation.validateText(msgm,"Dashboard");
     }
 
     @Test
@@ -38,15 +38,17 @@ public class LoginTest extends BaseTest {
         loginPage.preencherCampoSenha(usu.getSenha());
         loginPage.clicarBtnAcessar();
         String msgm = loginPage.validarMsgmEmailIncorreto();
-        validation.validateText(msgm,"Your email or passwod is incorrect!");
+        validation.validateText(msgm,"Invalid credentials");
     }
+
+
 
     @Test
     @Description(CE_LOGIN_03)
     public void test3validarLoginComDadosValidos(){
         LoginDto usu =  loginData.loginDadosValidos();
         String msgm = loginPage.fazerLogin(usu.getEmail(),usu.getSenha());
-        validation.validateText(msgm,"Logout");
+        validation.validateText(msgm,"Dashboard");
     }
 
     @Test
@@ -54,7 +56,7 @@ public class LoginTest extends BaseTest {
     public void test4validarLoginDadosInvalidos(){
         LoginDto usu =  loginData.LoginDadoDinamicos();
         String msgm = loginPage.loginEmailIncorreto(usu.getEmail(), usu.getSenha());
-        validation.validateText(msgm,"Your email or password is incorrect!");
+        validation.validateText(msgm,"Invalid credentials");
     }
 
 
