@@ -34,6 +34,7 @@ public class LoginPage extends Interactions {
             By.cssSelector("div[class=\"orangehrm-card-container\"] h6");
     private static final By VoltarPaginaLogin =
             By.cssSelector("form[action=\"/web/index.php/auth/validate\"]");
+    private static final By textoPaginaLogin = By.cssSelector("#app > div.orangehrm-login-layout > div > div.orangehrm-login-container > div > div.orangehrm-login-slot > h5");
 
     public void preencherCampoEmail(String email){
         sendKeys(username,email);
@@ -90,4 +91,7 @@ public class LoginPage extends Interactions {
     }
 
 
+    public String validarTextoPaginaLogin() {
+        return lerTexto(textoPaginaLogin);
+    }
 }

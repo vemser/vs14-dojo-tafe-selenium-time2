@@ -62,7 +62,6 @@ public class LoginTest extends BaseTest {
     public void testEsqueciSenha(){
         loginPage.clicarBtnEsqueciMinhaSenha();
         loginPage.preencherUsernameEsqueciSenha("Admin");
-        loginPage.clicarBtnEsqueciMinhaSenha();
         String msg = loginPage.btnValidarEsqueciSenha();
         validation.validateText(msg, "Reset Password link sent successfully");
 
@@ -73,8 +72,9 @@ public class LoginTest extends BaseTest {
         loginPage.clicarBtnEsqueciMinhaSenha();
         loginPage.preencherUsernameEsqueciSenha("Admin");
         loginPage.clicarBtnCancelarSenha();
-        String msg = loginPage.clicarBtnCancelarSenha();
-        validation.validateText(msg, "Reset Password link sent successfully");
+        String texto = loginPage.validarTextoPaginaLogin();
+
+        validation.validateText(texto, "Login");
     }
 
 }
