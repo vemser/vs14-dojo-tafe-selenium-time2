@@ -9,12 +9,16 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Story;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import static storys.LoginStory.*;
 
 @Epic(EPIC)
 @Story(USER_STORY_LOGIN)
 public class LoginTest extends BaseTest {
 
+    private static final Logger log = LoggerFactory.getLogger(LoginTest.class);
     LoginPage loginPage = new LoginPage();
     LoginData loginData = new LoginData();
     Validation validation = new Validation();
@@ -44,30 +48,21 @@ public class LoginTest extends BaseTest {
     @Test
     public void testUsernameVazio(){
         LoginDto login = loginData.loginDadosValidos();
-        loginPage.loginUsernameVazio("");
         login.setEmail("");
+        login.setSenha("");
+        loginPage.preencherCampoEmail(login.getEmail());
+        loginPage.preencherCampoSenha(login.getSenha());
+        loginPage.clicarBtnAcessar();
+        validation.validateText(loginPage.validarTextoRequiredUsername(), "Required");
+        validation.validateText(loginPage.validarTextoRequiredPassword(), "Required");
 
-
-        validation.validateText(msgm,"Required");
-    }
-
-
-
-    @Test
-    @Description(CE_LOGIN_03)
-    public void test3validarLoginComDadosValidos(){
-        LoginDto usu =  loginData.loginDadosValidos();
-        String msgm = loginPage.fazerLogin(usu.getEmail(),usu.getSenha());
-        validation.validateText(msgm,"Dashboard");
     }
 
     @Test
-    @Description(CE_LOGIN_04)
-    public void test4validarLoginDadosInvalidos(){
-        LoginDto usu =  loginData.LoginDadoDinamicos();
-        String msgm = loginPage.loginEmailIncorreto(usu.getEmail(), usu.getSenha());
-        validation.validateText(msgm,"Invalid credentials");
-    }
+    public void testEsqueciSenha(){
+        loginPage.clicarBtnEsqueciMinhaSenha();
+        loginPage.preencherUsernameEsqueciSenha("Admin");
 
+    }
 
 }

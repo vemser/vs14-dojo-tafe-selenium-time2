@@ -17,19 +17,28 @@ public class LoginPage extends Interactions {
     private static final By msgmEmailIncorreto =
     By.cssSelector("div.oxd-alert.oxd-alert--error > div.oxd-alert-content.oxd-alert-content--error > p");
     private static final By requireUsername =
-    By.cssSelector("div.orangehrm-login-container  div.orangehrm-login-slot > div.orangehrm-login-form > form > div:nth-child(2) > div > span");
+    By.cssSelector("#app > div.orangehrm-login-layout > div > div.orangehrm-login-container > div > div.orangehrm-login-slot > div.orangehrm-login-form > form > div:nth-child(2) > div > span");
     private static final By requirePassword =
     By.cssSelector("div.orangehrm-login-container > div > div.orangehrm-login-slot > div.orangehrm-login-form > form > div:nth-child(3) > div > span");
+
+    private static final By esqueciSenhaBtn =
+            By.cssSelector("div[class=\"orangehrm-login-forgot\"] p");
+
+    private static final By inputUsernameEsqueciSenha =
+            By.cssSelector("form[class=\"oxd-form\"] input[name=\"username\"]");
+    private static final By btnEsqueciSenha =
+            By.cssSelector("form > div.orangehrm-forgot-password-button-container > button.oxd-button.oxd-button--large.oxd-button--secondary.orangehrm-forgot-password-button.orangehrm-forgot-password-button--reset");
+    private static final By btnCancelarEsqueciSenha =
+            By.cssSelector("button.oxd-button.oxd-button--large.oxd-button--ghost.orangehrm-forgot-password-button.orangehrm-forgot-password-button--cancel");
 
     public void preencherCampoEmail(String email){
         sendKeys(username,email);
     }
-
     public void preencherCampoSenha(String senha){
         sendKeys(campoSenha,senha);
     }
-
-
+    public String validarTextoRequiredUsername(){return lerTexto(requireUsername);}
+    public String validarTextoRequiredPassword(){return lerTexto(requirePassword);}
     public void clicarBtnAcessar(){
         click(btnLogin);
     }
@@ -39,6 +48,9 @@ public class LoginPage extends Interactions {
     public String validarMsgmEmailIncorreto(){
         return lerTexto(msgmEmailIncorreto);
     }
+    public void clicarBtnEsqueciMinhaSenha(){click(esqueciSenhaBtn);}
+    public void preencherUsernameEsqueciSenha(String email){sendKeys(inputUsernameEsqueciSenha, email);}
+    public void clicarBtnEsqueciSEnha(){click(btnEsqueciSenha);}
 
     public String fazerLogin(String email, String senha){
         preencherCampoEmail(email);
