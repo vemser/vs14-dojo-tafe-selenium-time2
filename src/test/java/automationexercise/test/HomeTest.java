@@ -48,12 +48,13 @@ public void setUp() {
 
     @Test
     public void testAddUsuario() {
+    homePage.mostrarAdmin();
     homePage.clicarBtnAdd();
-
-
+    homePage.inputAdmin();
+    homePage.inputStatus();
+    homePage.preencherNome();
+    homePage.preencherPassowrd();
+    homePage.preencherConfirmPassowrd();
+    homePage.clicarBtnSave();
     }
-
-
-
-
 }

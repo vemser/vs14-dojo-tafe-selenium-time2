@@ -54,6 +54,9 @@ public class HomePage extends Interactions {
 ;
     }
 
+//    public String  addUsuarioInvalido(){
+//        click(btnSave);
+//    }
 
     public void clicarBtnAdd() {
         click(btnAdd);
@@ -71,4 +74,15 @@ public class HomePage extends Interactions {
         click(inputStatus);
     }
 
+    public void preencherNome(){
+        sendKeys(labelUserName, "Matheus");
+    }
+
+    public void preencherPassowrd(){
+        sendKeys(labelPassword, "12345Test");
+    }
+
+    public void preencherConfirmPassowrd(){
+        sendKeys(labelConfirmPassword, "12345Test");
+    }
 }
